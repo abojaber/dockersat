@@ -1,0 +1,21 @@
+
+version: '3'
+services:
+  sql-server-db:
+    hostname: sql-server-db
+    container_name: sql-server-db
+    build:
+      context: builder/
+    volumes:
+      - ./mssql/data:/var/opt/sqlserver/data
+      - ./mssql/log:/var/opt/sqlserver/log
+      - ./mssql/scripts:/scripts
+    ports:
+      - "1443:1433"
+    networks:
+      - dockersat    
+    environment:
+      - SA_PASSWORD=${MSSQL_SA_PASSWORD}
+      - ACCEPT_EULA="Y"
+networks:
+  dockersat:
