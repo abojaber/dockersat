@@ -7,9 +7,9 @@ services:
       context: builder/
       args:
         ELASTIC_VERSION: ${LOGSTASH_VERSION}
-    volumes:
-      - ./config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
-      - ./pipeline:/usr/share/logstash/pipeline:ro,Z
+    #volumes:
+      #- ./config:/usr/share/logstash/config:ro,Z
+      #- ./pipeline:/usr/share/logstash/pipeline:ro,Z
     ports:
       - 5044:5044
       - 50000:50000/tcp
