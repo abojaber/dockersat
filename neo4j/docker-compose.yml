@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+  neo4j-internal:
+
+services:
+
+  server1:
+    image: ${NEO4J_DOCKER_IMAGE}
+
+    # Hostname
+    hostname: neo4j
+
+    networks:
+      neo4j-internal:
+        aliases:
+          - neo4j-network
+
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+    volumes:
+      - ./neo4j.conf:/conf/neo4j.conf 
+      - ./data:/var/lib/neo4j/data
+      #- ./logs:/var/lib/neo4j/logs
+      - ./conf:/var/lib/neo4j/conf
+      #- ./import:/var/lib/neo4j/import
+      #- ./metrics:/var/lib/neo4j/metrics
+      #- ./licenses:/var/lib/neo4j/licenses
+      #- ./ssl:/var/lib/neo4j/ssl
+
+    environment:
+      - NEO4J_AUTH
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider localhost:7474 || exit 1"]
+
+    # Set up the user
+    user: "1000" #:1000 
+
