@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+    squid:
+      hostname: squid_proxy
+      container_name: squid_proxy
+      image: coun/squid-transparent:latest
+      volumes:
+        - ./logs:/var/log/squid
+        - ./etc:/etc/squid
+        - ./cache:/var/cache/squid
+      ports:
+        - "3128:3128"
+        - "3129:3129"
+        - "3130:3130"
+        - "3131:3131"
+      environment:
+        - SSL_RSA=2048 
+        - SSL_DAYS=365 
+        - SSL_C=RU 
+        - SSL_ST=Saratov 
+        - SSL_L=Saratov 
+        - SSL_O=MyCompany 
+        - SSL_OU=MyCompany 
+        - SSL_CERT=SquidCA 
+        - TZ=Asia/Riyadh
