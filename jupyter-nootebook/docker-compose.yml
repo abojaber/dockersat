@@ -1,0 +1,8 @@
+services:
+  app: # Renaming 'service' to 'app' (you can change this to a more meaningful name)
+    build:
+      context: . # Using 'context' for better clarity
+    ports:
+      - "8081:8888"
+    volumes:
+      - ./code:/code
