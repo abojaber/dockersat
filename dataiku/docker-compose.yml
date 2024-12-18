@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  dataiku:
+    image: dataiku/dss:latest
+    container_name: dataiku-dss
+    ports:
+      - "11000:10000"   # DSS web interface port
+    volumes:
+      - ./data:/home/dataiku/dss   # Bind mount for persistent storage
+    environment:
+      - DSS_ADMIN_LOGIN=admin      # Default admin username
+      - DSS_ADMIN_PASSWORD=admin   # Default admin password
+    restart: unless-stopped
+
