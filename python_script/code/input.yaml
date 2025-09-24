@@ -1,0 +1,56 @@
+variables:
+  - name: VARIABLES_FILE_PATH
+    value: 'env_develop/string-reverser-variables.yml'
+  - name: PROJECT_NAME
+    value: 'Event%20Driven%20Notification'
+
+  - name: BRANCH_NAME
+    value: 'refs/heads/develop'
+  - name: PIPELINE_ID
+    value: '3601'
+
+  - name: OUTPUT_JAR_NAME
+    value: 'output.jar'
+  - name: OUTPUT_PATH
+    value: '/deployment/extensions/'
+  - name: EXTENSION_PREFIX
+    value: 'strev'
+  - name: EXTENSION_NAME
+    value: 'string-reverser'
+
+  - name: GIT_USER_NAME
+    value: 'reverse-pipeline@thiqah.sa'
+  - name: GIT_USER_EMAIL
+    value: 'revers@thiqah.com'
+  - name: App_Repo
+    value: 'App_Repo'
+
+  - name: SONARQUBE_PROJECT_KEY
+    value: event_handler
+  - name: SONARQUBE_PROJECT_NAME
+    value: event_handler
+  - name: JAVA_POM_PATH
+    value: 'string-reverser/pom.xml'
+  - name: JAVA_ARTIFACT_ID
+    value: 'string-reverser-1.1.0.jar'
+  - name: JAVA_PATH_TO_PUBLISH'
+    value: 'string-reverser/target'
+  - name: JAVA_ARTIFACT_NAME # full path to the artifact
+    value: 'string-reverser/target/string-reverser-1.1.0.jar'
+  
+  - name: KUBERNETES_SERVICE_ENDPOINT
+    value: 'aks-int-keycloak'
+  - name: KUBERNETES_DEPLOY_PATH
+    value: '/opt/jboss/keycloak/modules/system/layers/keycloak/org/keycloak/keycloak-server-spi-private/main'
+
+  - name: KUBERNETES_DESTINATION_KS_PATH # destination path in the GIT repo
+    value: 'modules/system/layers/keycloak/org/keycloak/keycloak-services/main'
+
+  - name: MAJOR_VERSION
+    value: '1'
+  - name: MINOR_VERSION
+    value: '1'
+  - name: ENV_SUFFIX
+    value: 'dev'
+  - name: ENV_NAME
+    value: 'development'
