@@ -1,0 +1,9 @@
+services:
+  nocodb:
+    container_name: noco
+    image: nocodb/nocodb:0.250.2
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nocodb:/usr/app/data/
+    restart: none
